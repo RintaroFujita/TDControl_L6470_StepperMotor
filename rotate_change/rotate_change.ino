@@ -3,7 +3,7 @@
 #define L6470_SS_PIN 10
 
 int flag;
-bool kaiten = true; // モーターの初期方向を正転とする
+bool isClockwise = true; // モーターの初期方向を正転とする
 
 void setup() {
   SPI.begin();
@@ -22,8 +22,8 @@ void loop() {
     flag = Serial.read(); // シリアルの値
 
     if (flag == 1) {
-      kaiten = !kaiten; // 方向を切り替える
-      rotateMotorMicrostep(1, 200, kaiten); // モーターを回転させる
+      isClockwise = !isClockwise; // 方向を切り替える
+      rotateMotorMicrostep(1, 200, isClockwise); // モーターを回転させる
     } else {
       stopMotor(); // モーターを停止
     }
