@@ -52,7 +52,6 @@ void L6470_setup() {
 }
 
 void rotateMotorMicrostep(float kaiten, int count) {
-  // 回転方向（常に正転）
   L6470_send(0x50); // 正転
 
   // 回転速度を設定する
