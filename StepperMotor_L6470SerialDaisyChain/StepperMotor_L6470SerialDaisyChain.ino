@@ -23,9 +23,9 @@ void loop() {
     int flag = Serial.parseInt(); // シリアルから整数値を読み取る
 
     if (flag == 1) {
-      rotateMotorMicrostep(2, 200); // モーターが1回転し、回転速度が200で回る
+      rotateMotorMicrostep(3, 500); // モーターが1回転し、回転速度が200で回る
     } else if (flag == 2) {
-      rotateMotorMicrostep(-2, 200); // モーターが逆回転して1回転し、回転速度が200で回る
+      rotateMotorMicrostep(-3, 500); // モーターが逆回転して1回転し、回転速度が200で回る
     } else {
       stopMotor(); // モーターを停止
     }
@@ -78,6 +78,6 @@ void rotateMotorMicrostep(float kaiten, int speed) {
 }
 
 void stopMotor() {
-  L6470_send(0xB0, L6470_SS_PIN); // モーターを停止
   L6470_send(0xB0, L6470_SS_PIN2); // モーターを停止
+  L6470_send(0xB0, L6470_SS_PIN); // モーターを停止
 }
